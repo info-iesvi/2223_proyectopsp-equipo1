@@ -6,9 +6,85 @@ Año: 2022-2023
 Módulo: PSP
 
 ## APIs seleccionadas:
-* Best Game Price Search: [https://rapidapi.com/ymfh/api/game-price/](https://rapidapi.com/PaweLewoniewski/api/best-game-price-search)
+* Video Game news: [https://rapidapi.com/JpBongiovanni/api/https://rapidapi.com/JpBongiovanni/api/video-game-news//](https://rapidapi.com/JpBongiovanni/api/video-game-news/)
 * Epic Games store: [https://rapidapi.com/archergardinersheridan/api/steam-store-data](https://rapidapi.com/psimavel/api/epic-games-store)
 * Game Prices: [https://rapidapi.com/SapphireWare/api/video-game-price/](https://rapidapi.com/wim.onderbeke/api/game-prices)
+
+## Video Game news
+Ofrece los siguientes endpoints, con la restricción de que se tiene que estar suscrito para utilizarlas:
+
+### GET all articles from all sources: Busca los datos de todos los articulos y los muertra.
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url https://video-game-news.p.rapidapi.com/all \
+	--header 'X-RapidAPI-Host: video-game-news.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://video-game-news.p.rapidapi.com/all"))
+		.header("X-RapidAPI-Key", "d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10")
+		.header("X-RapidAPI-Host", "video-game-news.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+#### Prueba:
+![img_2.png](img_2.png)
+
+### GET All articles from a specific source
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url https://video-game-news.p.rapidapi.com/%7BsourceId%7D \
+	--header 'X-RapidAPI-Host: video-game-news.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://video-game-news.p.rapidapi.com/%7BsourceId%7D"))
+		.header("X-RapidAPI-Key", "d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10")
+		.header("X-RapidAPI-Host", "video-game-news.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+![img_3.png](img_3.png)
+
+### GET Article from a specific source
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url https://video-game-news.p.rapidapi.com/pokemon \
+	--header 'X-RapidAPI-Host: video-game-news.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://video-game-news.p.rapidapi.com/pokemon"))
+		.header("X-RapidAPI-Key", "d91b7432femsh5a3909c96d9861bp1f4ebbjsn7dbdb34d7a10")
+		.header("X-RapidAPI-Host", "video-game-news.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+![img_4.png](img_4.png)
 
 ## Epic Games store
 Ofrece los siguientes endpoints, con la restricción de que se tiene que estar suscrito para utilizarlas:
