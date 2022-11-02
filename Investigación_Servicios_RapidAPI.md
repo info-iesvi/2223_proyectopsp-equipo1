@@ -164,5 +164,80 @@ System.out.println(response.body());
 #### Prueba:
 ![image](https://user-images.githubusercontent.com/73997994/199535323-a4e51b65-c805-4194-8cc7-43963be05f29.png)
 
-# METED LOS QUE FALTAN
-Seguid mas o menos la estructura esta que se supone que sea así como se entreguen. Aseguraos de poner el código en los bloques separados con comas izquierdas, y justo antes de la primera línea de código poned el lenguaje que se supone que sea para hacerlo más legible.
+## Games Price
+Ofrece los siguientes endpoints, con la restricción de que se tiene que estar suscrito para utilizarlas:
+
+### GET Get Regions: Obtiene todas las regiones disponibles para su uso en esta API.
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url https://game-prices.p.rapidapi.com/regions \
+	--header 'X-RapidAPI-Host: game-prices.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: 45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://game-prices.p.rapidapi.com/regions"))
+		.header("X-RapidAPI-Key", "45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c")
+		.header("X-RapidAPI-Host", "game-prices.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+#### Prueba:
+![image](imagen1.png)
+
+### GET Get Games: Obtiene todos los juegos con los parámetros de consulta proporcionados. La región dada determina la moneda en la que verá los resultados. Se realiza una búsqueda aproximada sobre el título. La paginación es posible usando los parámetros limit y offset.
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url 'https://game-prices.p.rapidapi.com/games?title=minecraft&region=us&offset=0&limit=10' \
+	--header 'X-RapidAPI-Host: game-prices.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: 45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://game-prices.p.rapidapi.com/games?title=minecraft&region=us&offset=0&limit=10"))
+		.header("X-RapidAPI-Key", "45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c")
+		.header("X-RapidAPI-Host", "game-prices.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+#### Prueba:
+![image](imagen2.png)
+
+### GET Get Game: Obtiene un juego por su id. La identificación se puede encontrar utilizando el punto final /games y realizando una búsqueda aproximada, pero a menudo será la versión en minúsculas del nombre del juego separada por líneas discontinuas en lugar de espacios. La región determina la moneda en la que se convertirán los precios. El tipo determina si el producto es un juego, dlc, aplicación o paquete.
+
+#### CURL de ejemplo:
+``` shell
+curl --request GET \
+	--url 'https://game-prices.p.rapidapi.com/game/minecraft?region=us&type=game' \
+	--header 'X-RapidAPI-Host: game-prices.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: 45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c'
+```
+
+#### Implementación Java:
+``` java
+HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://game-prices.p.rapidapi.com/game/minecraft?region=us&type=game"))
+		.header("X-RapidAPI-Key", "45aa08241cmsh76c4b52da44a492p132fb9jsn4a4d8fde628c")
+		.header("X-RapidAPI-Host", "game-prices.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+#### Prueba:
+![image](imagen3.png)
