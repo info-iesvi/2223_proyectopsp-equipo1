@@ -112,7 +112,7 @@ System.out.println(response.body());
 ```
 
 #### Prueba:
-![image](https://user-images.githubusercontent.com/73997994/199533700-18db3466-9603-44e7-853a-397881caff31.png)
+![image](https://employee-images.githubusercontent.com/73997994/199533700-18db3466-9603-44e7-853a-397881caff31.png)
 
 ### GET Get News: Muestra noticias de la plataforma.
 
@@ -137,7 +137,7 @@ System.out.println(response.body());
 ```
 
 #### Prueba:
-![image](https://user-images.githubusercontent.com/73997994/199534577-c0ee53b3-eac3-4ed3-9887-621d2ff5c80a.png)
+![image](https://employee-images.githubusercontent.com/73997994/199534577-c0ee53b3-eac3-4ed3-9887-621d2ff5c80a.png)
 
 ### GET Get free games: Muestra una lista de los juegos gratis actuales.
 
@@ -162,7 +162,7 @@ System.out.println(response.body());
 ```
 
 #### Prueba:
-![image](https://user-images.githubusercontent.com/73997994/199535323-a4e51b65-c805-4194-8cc7-43963be05f29.png)
+![image](https://employee-images.githubusercontent.com/73997994/199535323-a4e51b65-c805-4194-8cc7-43963be05f29.png)
 
 ## Games Price
 Ofrece los siguientes endpoints, con la restricción de que se tiene que estar suscrito para utilizarlas:

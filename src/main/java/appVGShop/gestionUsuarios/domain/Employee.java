@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
-public class User {
+public class Employee {
 
     @Id @GeneratedValue
     private Integer empleadoID;
@@ -18,5 +18,5 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name="empleadoID")
-    private User codSuperior;
+    private Employee codSuperior;
 }
