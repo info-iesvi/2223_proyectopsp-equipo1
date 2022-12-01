@@ -1,4 +1,4 @@
-CREATE TABLE Employee (
+CREATE TABLE employee (
    empleadoID INT NOT NULL,
    nombreEmpleado VARCHAR(255),
    correoEmpleado VARCHAR(255),
