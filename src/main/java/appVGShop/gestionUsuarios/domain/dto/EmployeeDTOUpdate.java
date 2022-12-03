@@ -12,12 +12,12 @@ import lombok.Setter;
 // Se generan un getter y un setter para todos los atributos.
 public class EmployeeDTOUpdate {
 
-    @Id
+    //@Id
     // La anotación se utiliza para determinar el ID de una entidad, aplicándola sobre la propiedad que sería el ID de la entidad.
-    @GeneratedValue
+    //@GeneratedValue
     // La anotación se emplea a una propiedad o campo de clave principal de una entidad o superclase
     // correlacionada junto con la anotación @Id.
-    private Integer empleadoID;
+    //private Integer empleadoID;
     private String nombreEmpleado;
     private String correoEmpleado;
     private String passwdEmpleado;

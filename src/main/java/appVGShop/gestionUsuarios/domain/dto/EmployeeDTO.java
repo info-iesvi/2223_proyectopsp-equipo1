@@ -10,7 +10,7 @@ import lombok.Setter;
 // Se generan un getter y un setter para todos los atributos.
 public class EmployeeDTO {
 
-    private int empleadoID;
+    //private int empleadoID;
     private String nombreEmpleado;
     private String correoEmpleado;
     private String passwdEmpleado;
