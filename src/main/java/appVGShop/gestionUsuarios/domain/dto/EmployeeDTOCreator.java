@@ -10,4 +10,5 @@ public class EmployeeDTOCreator {
     private String correoEmpleado;
     private String passwdEmpleado;
     private Integer codSuperior;
+
 }

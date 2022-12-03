@@ -19,4 +19,5 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="empleadoID")
     private Employee codSuperior;
+
 }
