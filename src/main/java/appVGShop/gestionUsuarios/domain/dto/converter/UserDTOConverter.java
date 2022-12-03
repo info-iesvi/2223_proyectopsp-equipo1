@@ -28,7 +28,7 @@ public class UserDTOConverter {
      * @param employeeDTOCreator
      * @return
      */
-    public Employee convertToEmployee (EmployeeDTOCreator employeeDTOCreator) {
+    public Employee convertToEmployee(EmployeeDTOCreator employeeDTOCreator) {
 
         return modelMapper.map(employeeDTOCreator, Employee.class);
 
@@ -40,7 +40,7 @@ public class UserDTOConverter {
      * @param employeeDTOUpdate
      * @return
      */
-    public Employee convertToEmployee (EmployeeDTOUpdate employeeDTOUpdate) {
+    public Employee convertToEmployee(EmployeeDTOUpdate employeeDTOUpdate) {
 
         return modelMapper.map(employeeDTOUpdate, Employee.class);
 
@@ -52,7 +52,7 @@ public class UserDTOConverter {
      * @param employeeDTODelete
      * @return
      */
-    public Employee convertToEmployee (EmployeeDTODelete employeeDTODelete) {
+    public Employee convertToEmployee(EmployeeDTODelete employeeDTODelete) {
 
         return modelMapper.map(employeeDTODelete, Employee.class);
 
@@ -64,7 +64,7 @@ public class UserDTOConverter {
      * @param employeeDTOShow
      * @return
      */
-    public Employee convertToEmployee (EmployeeDTOShow employeeDTOShow) {
+    public Employee convertToEmployee(EmployeeDTOShow employeeDTOShow) {
 
         return modelMapper.map(employeeDTOShow, Employee.class);
 

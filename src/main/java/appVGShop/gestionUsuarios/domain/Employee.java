@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Employee {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Integer empleadoID;
 
     private String nombreEmpleado;

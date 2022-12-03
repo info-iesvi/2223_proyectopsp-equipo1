@@ -11,4 +11,5 @@ public class EmployeeDTODelete {
     @Id
     @GeneratedValue
     private Integer empleadoID;
+
 }
