@@ -7,7 +7,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
+// Esta anotación se usa en las clases para indicar un componente Spring.
+// La anotación marca la clase Java como un bean o un componente de modo que el mecanismo de escaneo de componentes de Spring pueda agregarse al contexto de la aplicación.
 @RequiredArgsConstructor
+// Genera un constructor con 1 parámetro para cada campo que requiere un manejo especial.
 public class UserDTOConverter {
 
     private final ModelMapper modelMapper;

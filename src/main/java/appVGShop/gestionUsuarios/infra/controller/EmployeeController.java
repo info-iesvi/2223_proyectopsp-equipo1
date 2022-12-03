@@ -18,9 +18,11 @@ import java.util.stream.Collectors;
  * Tiene las funciones de un CRUD normal.
  */
 @RestController
+// La anotación marca la clase como un controlador donde cada método devuelve un objeto de dominio en lugar de una vista.
 @RequiredArgsConstructor
+// Genera un constructor con todos los argumentos requeridos.
+// Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
 public class EmployeeController {
-    //TODO toda la clase
 
     private final EmployeeRepository employeeRepository;
     private final UserDTOConverter userDTOConverter;
@@ -33,15 +35,23 @@ public class EmployeeController {
      * @return 404 si no encuentra nada, 200 y el listado si hay más de uno.
      */
     @GetMapping("/employees")
+    // La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
     public ResponseEntity<?> getAll() {
+
         List<Employee> employeeList = employeeRepository.findAll();
 
         if (employeeList.isEmpty()) {
+
             return ResponseEntity.notFound().build();
+
         } else {
+
             List<EmployeeDTO> dtoList = employeeList.stream().map(userDTOConverter::fromPropertyToDTO).collect(Collectors.toList());
+
             return ResponseEntity.ok(dtoList);
+
         }
+
     }
 
     /**
@@ -53,13 +63,23 @@ public class EmployeeController {
      * @return 404 si no se encuentra nada // 200 si el empleado existe.
      */
     @GetMapping("/employees/{id}")
+    // La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
     public ResponseEntity<?> getUser(@PathVariable Integer id) {
+
+        // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
         Employee employee = employeeRepository.findById(id).orElse(null);
+
         if (employee == null) {
+
             return ResponseEntity.notFound().build();
+
         } else {
+
             return ResponseEntity.ok(employee);
+
         }
+
     }
 
     /**
@@ -71,14 +91,25 @@ public class EmployeeController {
      * @return 201 con los datos del nuevo usuario
      */
     @PostMapping("/employees")
+    // La anotación se utiliza para asignar solicitudes HTTP POST a métodos de controlador específicos.
     public ResponseEntity<?> newUser(@RequestBody EmployeeDTOCreator newUserCreator) {
+
+        // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
         Employee newEmployee = new Employee();
+
         newEmployee.setNombreEmpleado(newUserCreator.getNombreEmpleado());
+
         newEmployee.setCorreoEmpleado(newUserCreator.getCorreoEmpleado());
+
         newEmployee.setPasswdEmpleado(newUserCreator.getPasswdEmpleado());
+
         Employee superior = employeeRepository.findById(newUserCreator.getCodSuperior()).orElse(null);
+
         newEmployee.setCodSuperior(superior);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(employeeRepository.save(newEmployee));
+
     }
 
     /**
@@ -93,17 +124,31 @@ public class EmployeeController {
      * @return 200 si se ha podido editar correctamente // 404 si no encuentra el empleado.
      */
     @PutMapping("/employees/{id}")
+    // La anotación se utiliza para asignar solicitudes HTTP PUT a métodos de controlador específicos.
     public ResponseEntity<?> editUser(@RequestBody EmployeeDTOCreator editData, @PathVariable Integer id) {
+
+        // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
         return employeeRepository.findById(id).map(p -> {
+
             p.setNombreEmpleado(editData.getNombreEmpleado());
+
             p.setCorreoEmpleado(editData.getCorreoEmpleado());
+
             p.setPasswdEmpleado(editData.getPasswdEmpleado());
+
             Employee superior = employeeRepository.findById(editData.getCodSuperior()).orElse(null);
+
             p.setCodSuperior(superior);
+
             return ResponseEntity.ok(employeeRepository.save(p));
+
         }).orElseGet(() -> {
+
             return ResponseEntity.notFound().build();
+
         });
+
     }
 
     /**
@@ -116,8 +161,15 @@ public class EmployeeController {
      * @return 204 sin contenido.
      */
     @DeleteMapping("/employees/{id}")
+    // La anotación se utiliza para mapear solicitudes HTTP DELTE en métodos de controlador específicos.
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+
+        // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
         employeeRepository.deleteById(id);
+
         return ResponseEntity.noContent().build();
+
     }
+
 }
