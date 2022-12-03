@@ -27,6 +27,9 @@ public class EmployeeController {
 
     /**
      * Método de listado de todos los empleados.
+     *
+     * Se utiliza el repositorio actual y se obtiene una lista de empleados de este.
+     *
      * @return 404 si no encuentra nada, 200 y el listado si hay más de uno.
      */
     @GetMapping("/employees")
