@@ -29,7 +29,7 @@ public class EmployeeController {
 
     /**
      * Método de listado de todos los empleados.
-     *
+     * <p>
      * Se utiliza el repositorio actual y se obtiene una lista de empleados de este.
      *
      * @return 404 si no encuentra nada, 200 y el listado si hay más de uno.
@@ -56,8 +56,8 @@ public class EmployeeController {
 
     /**
      * Método para mostrar un empleado según su ID.
-     *
-     * Se toma la id desde la url, se busca con esa id en el repositorio y devuelve un Employee
+     * <p>
+     * Se toma la id desde la url, se busca con esa id en el repositorio y devuelve un Employee.
      *
      * @param id
      * @return 404 si no se encuentra nada // 200 si el empleado existe.
@@ -65,7 +65,6 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     // La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
     public ResponseEntity<?> getUser(@PathVariable Integer id) {
-
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
 
         Employee employee = employeeRepository.findById(id).orElse(null);
@@ -84,7 +83,7 @@ public class EmployeeController {
 
     /**
      * Método de creación de empleado.
-     *
+     * <p>
      * Se toman los datos del cuerpo, para crear un nuevo empleado.
      *
      * @param newUserCreator
@@ -93,7 +92,6 @@ public class EmployeeController {
     @PostMapping("/employees")
     // La anotación se utiliza para asignar solicitudes HTTP POST a métodos de controlador específicos.
     public ResponseEntity<?> newUser(@RequestBody EmployeeDTOCreator newUserCreator) {
-
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
 
         Employee newEmployee = new Employee();
@@ -114,7 +112,7 @@ public class EmployeeController {
 
     /**
      * Método de edición de empleado.
-     *
+     * <p>
      * Se introducen los datos que se van ha editar en el cuerpo y se toma la ID desde la url.
      * Se realiza un mapeado de los empleados que hay en el repositorio, cuando lo encuentra toma el empleado y
      * actualiza sus datos.
@@ -126,7 +124,6 @@ public class EmployeeController {
     @PutMapping("/employees/{id}")
     // La anotación se utiliza para asignar solicitudes HTTP PUT a métodos de controlador específicos.
     public ResponseEntity<?> editUser(@RequestBody EmployeeDTOCreator editData, @PathVariable Integer id) {
-
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
 
         return employeeRepository.findById(id).map(p -> {
@@ -153,7 +150,7 @@ public class EmployeeController {
 
     /**
      * Método de eliminación de empleado.
-     *
+     * <p>
      * Se recibe la ID del empleado desde la url.
      * Se toma el repositorio de empleados actual, se buscara y eliminara el empleado con la id que se toma.
      *
@@ -163,7 +160,6 @@ public class EmployeeController {
     @DeleteMapping("/employees/{id}")
     // La anotación se utiliza para mapear solicitudes HTTP DELTE en métodos de controlador específicos.
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
-
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
 
         employeeRepository.deleteById(id);
