@@ -7,8 +7,4 @@ Módulo: PSP
 
 ## [Codificación-1] Implementando los usuarios
 
-### Anotaciones de Spring Boot de clase, métodos y atributos
-
-### Declaración de objetos e inyección de dependencias
-
-### Pruebas con Postman
+### Pruebas con H2
