@@ -27,11 +27,6 @@ public class Employee {
     private String correoEmpleado;
     private String passwdEmpleado;
 
-    @ManyToOne
-    // La anotación @ManyToOne, nos permite mapear una entidad con otra.
-    // Como única regla, es necesario la clase que sea una entidad, es decir, que también esté anotada con @Entity.
-    @JoinColumn(name="empleadoID")
-    // La anotación se utiliza para crear múltiples columnas de unión.
-    private Employee codSuperior;
+    private Boolean esSuperior;
 
 }

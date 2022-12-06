@@ -5,6 +5,7 @@ import appVGShop.gestionUsuarios.domain.dto.EmployeeDTO;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTOCreator;
 import appVGShop.gestionUsuarios.domain.dto.converter.UserDTOConverter;
 import appVGShop.gestionUsuarios.infra.EmployeeRepository;
+import appVGShop.shared.config.EndpointUrls;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,14 @@ import java.util.stream.Collectors;
  */
 @RestController
 // La anotación marca la clase como un controlador donde cada método devuelve un objeto de dominio en lugar de una vista.
+@RequestMapping(EndpointUrls.Base + EmployeeController.USER_RESOURCE)
+// Indica la url bajo la cual se publicará el controlador
 @RequiredArgsConstructor
 // Genera un constructor con todos los argumentos requeridos.
 // Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
 public class EmployeeController {
 
+    public static final String USER_RESOURCE = "/employee";
     private final EmployeeRepository employeeRepository;
     private final UserDTOConverter userDTOConverter;
 
@@ -34,7 +38,7 @@ public class EmployeeController {
      *
      * @return 404 si no encuentra nada, 200 y el listado si hay más de uno.
      */
-    @GetMapping("/employees")
+    @GetMapping(EndpointUrls.GetAll)
     // La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
     public ResponseEntity<?> getAll() {
 
@@ -62,7 +66,7 @@ public class EmployeeController {
      * @param id
      * @return 404 si no se encuentra nada // 200 si el empleado existe.
      */
-    @GetMapping("/employees/{id}")
+    @GetMapping(EndpointUrls.GetUser)
     // La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
     public ResponseEntity<?> getUser(@PathVariable Integer id) {
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
@@ -89,7 +93,7 @@ public class EmployeeController {
      * @param newUserCreator
      * @return 201 con los datos del nuevo usuario
      */
-    @PostMapping("/employees")
+    @PostMapping
     // La anotación se utiliza para asignar solicitudes HTTP POST a métodos de controlador específicos.
     public ResponseEntity<?> newUser(@RequestBody EmployeeDTOCreator newUserCreator) {
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
@@ -102,9 +106,7 @@ public class EmployeeController {
 
         newEmployee.setPasswdEmpleado(newUserCreator.getPasswdEmpleado());
 
-        Employee superior = employeeRepository.findById(newUserCreator.getCodSuperior()).orElse(null);
-
-        newEmployee.setCodSuperior(superior);
+        newEmployee.setEsSuperior(newUserCreator.getEsSuperior());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(employeeRepository.save(newEmployee));
 
@@ -121,7 +123,7 @@ public class EmployeeController {
      * @param id
      * @return 200 si se ha podido editar correctamente // 404 si no encuentra el empleado.
      */
-    @PutMapping("/employees/{id}")
+    @PutMapping(EndpointUrls.EditUser)
     // La anotación se utiliza para asignar solicitudes HTTP PUT a métodos de controlador específicos.
     public ResponseEntity<?> editUser(@RequestBody EmployeeDTOCreator editData, @PathVariable Integer id) {
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
@@ -134,9 +136,7 @@ public class EmployeeController {
 
             p.setPasswdEmpleado(editData.getPasswdEmpleado());
 
-            Employee superior = employeeRepository.findById(editData.getCodSuperior()).orElse(null);
-
-            p.setCodSuperior(superior);
+            p.setEsSuperior(editData.getEsSuperior());
 
             return ResponseEntity.ok(employeeRepository.save(p));
 
@@ -157,7 +157,7 @@ public class EmployeeController {
      * @param id
      * @return 204 sin contenido.
      */
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping(EndpointUrls.DeleteUser)
     // La anotación se utiliza para mapear solicitudes HTTP DELTE en métodos de controlador específicos.
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
         // La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
