@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-// Se generan un getter y un setter para todos los atributos.
 public class EmployeeDTOCreator {
 
     private String nombreEmpleado;
