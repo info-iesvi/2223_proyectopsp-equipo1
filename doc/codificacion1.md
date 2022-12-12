@@ -67,20 +67,26 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
   Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
 ![img_2.png](img_2.png)
 * @NoArgsConstructor: Genera un constructor sin atributos.
+  ![img_10.png](img_10.png)
 * @Data: Es una anotación de acceso directo conveninete que agrupa las características
   de @ToString, @EqualsAndHashCode, @Getter, @Setter y @RequiredArgsConstructor juntas.
+![img_10.png](img_10.png)
 * @Getter y @Setter: Se generan un getter y un setter para todos los atributos. No se generan setter para atributos finales.
 ![img_3.png](img_3.png)
 * @ToString: Introduce el toString base que podría tener una clase con todos sus atributos.
 * @EqualsAndHashCode: Introduce los métodos de "equals(La misma clase)" y "hashCode()".
+* @NoArgsConstructor: Genera un constructor con todos los atributos.
+![img_10.png](img_10.png)
 
 #### Jakarta
 
 * @Entity: Es la persistencia de objetos almacenados como registros en la base de datos.
+![img_10.png](img_10.png)
 * @Id: La anotación se utiliza para determinar el ID de una entidad, aplicándola sobre la propiedad que sería el ID de la entidad.
+![img_9.png](img_9.png)
 * @GeneratedValue: La anotación se emplea a una propiedad o campo de clave principal de una entidad o superclase
   correlacionada junto con la anotación @Id.
-
+![img_9.png](img_9.png)
 ### Inversión de dependencias
 
 Utilizando Spring y el sistema de anotaciones se ha logrado que el sistema pueda declarar las entidades necesarias para la aplicación sin necesidad que fuera esto hecho explícitamente.
