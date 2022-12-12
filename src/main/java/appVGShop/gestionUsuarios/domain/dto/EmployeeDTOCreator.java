@@ -1,7 +1,6 @@
 package appVGShop.gestionUsuarios.domain.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
