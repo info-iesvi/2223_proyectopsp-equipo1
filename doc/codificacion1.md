@@ -64,16 +64,11 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
 
 * @RequiredArgsConstructor: Genera un constructor con todos los argumentos requeridos.
   Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
-![](images/Captura de pantalla_20221212_165033.png)
 * @NoArgsConstructor: Genera un constructor sin atributos.
-![](images/Captura de pantalla_20221212_165033.png)
 * @AllArgsConstructor: Genera un constructor con todos los atributos.
-![](images/Captura de pantalla_20221212_165033.png)
 * @Data: Es una anotación de acceso directo conveniente que agrupa las características
   de @ToString, @EqualsAndHashCode, @Getter, @Setter y @RequiredArgsConstructor juntas.
-![](images/Captura de pantalla_20221212_165033.png)
 * @Getter y @Setter: Se generan un getter y un setter para todos los atributos. No se generan setter para atributos finales.
-![](images/Captura de pantalla_20221212_165139.png)
 * @ToString: Introduce el toString base que podría tener una clase con todos sus atributos.
 * @EqualsAndHashCode: Introduce los métodos de "equals(La misma clase)" y "hashCode()".
 
