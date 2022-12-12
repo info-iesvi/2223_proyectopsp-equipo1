@@ -48,15 +48,15 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
 * @Component: Esta anotación se usa en las clases para indicar un componente Spring.
   La anotación marca la clase Java como un bean o un componente de modo que el mecanismo de escaneo de componentes de Spring pueda agregarse al contexto de la aplicación.
 
-* ![](images/img_2.png)
+![](images/img_2.png)
 
 * @RestController: La anotación marca la clase como un controlador donde cada método devuelve un objeto de dominio en lugar de una vista.
 
-* ![](images/img_8.png)
+![](images/img_8.png)
 
 * @RequestMapping: Indica la url bajo la cual se publicará el controlador.
 
-* ![](images/img_8.png)
+![](images/img_8.png)
 
 * @GetMapping: La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
 
@@ -88,6 +88,7 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
 
 * @RequiredArgsConstructor: Genera un constructor con todos los argumentos requeridos.
   Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
+
 ![Captura de pantalla_20221212_165520.png](images/Captura%20de%20pantalla_20221212_165520.png)
 
 * @NoArgsConstructor: Genera un constructor sin atributos.
