@@ -28,35 +28,49 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
   La clase que se anota con el @SpringBootApplicationdebe mantenerse en el paquete base.
   La única cosa que el @SpringBootApplicationhace es un escaneo de componentes.
   Pero escaneará solo sus subpaquetes.
+
 * @Configuration: La anotación es parte del marco Spring Core.
   La anotación indica que la clase tiene métodos de definición de @Bean.
   Con esta, el contenedor Spring puede procesar la clase y generar
   Spring Beans para usar en la aplicación.
+![img_1.png](img_1.png)
 * @Bean: Esta anotación se utiliza en el nivel del método.
   @Bean es una anotación que funciona con @Configuration para crear beans en Spring.
   Como se mencionó anteriormente, @Configuration tendrá métodos para instanciar y configurar dependencias.
   Tales métodos serán anotados con @Bean.
   El método anotado con esta anotación funciona como ID del bean y crea y devuelve el bean real.
+![img.png](img.png)
 * @Component: Esta anotación se usa en las clases para indicar un componente Spring.
   La anotación marca la clase Java como un bean o un componente de modo que el mecanismo de escaneo de componentes de Spring pueda agregarse al contexto de la aplicación.
+![img_2.png](img_2.png)
 * @RestController: La anotación marca la clase como un controlador donde cada método devuelve un objeto de dominio en lugar de una vista.
+ 
 * @RequestMapping: Indica la url bajo la cual se publicará el controlador.
+
 * @GetMapping: La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
+![img_7.png](img_7.png)
 * @PathVariable: La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
 * @PostMapping: La anotación se utiliza para asignar solicitudes HTTP POST a métodos de controlador específicos.
+![img_6.png](img_6.png)
 * @RequestBody: La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+
 * @PutMapping: La anotación se utiliza para asignar solicitudes HTTP PUT a métodos de controlador específicos.
+![img_5.png](img_5.png)
 * @DeleteMapping: La anotación se utiliza para mapear solicitudes HTTP DELTE en métodos de controlador específicos.
+![img_4.png](img_4.png)
 * ResponseEntity<?>: Es una extensión de HttpEntity que añade el código HTTP de estado. Contiene la entidad indicada, pero también se le puede introducir un '?' para que identifique la clase de la entidad que debe tratar.
 
 #### Lombok
 
 * @RequiredArgsConstructor: Genera un constructor con todos los argumentos requeridos.
   Los argumentos obligatorios son campos finales y campos con restricciones como @NonNull.
+![img_2.png](img_2.png)
 * @NoArgsConstructor: Genera un constructor sin atributos.
 * @Data: Es una anotación de acceso directo conveninete que agrupa las características
   de @ToString, @EqualsAndHashCode, @Getter, @Setter y @RequiredArgsConstructor juntas.
 * @Getter y @Setter: Se generan un getter y un setter para todos los atributos. No se generan setter para atributos finales.
+![img_3.png](img_3.png)
 * @ToString: Introduce el toString base que podría tener una clase con todos sus atributos.
 * @EqualsAndHashCode: Introduce los métodos de "equals(La misma clase)" y "hashCode()".
 
