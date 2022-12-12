@@ -32,21 +32,32 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
   La anotación indica que la clase tiene métodos de definición de @Bean.
   Con esta, el contenedor Spring puede procesar la clase y generar
   Spring Beans para usar en la aplicación.
+ ![](images/img_1.png)
 * @Bean: Esta anotación se utiliza en el nivel del método.
   @Bean es una anotación que funciona con @Configuration para crear beans en Spring.
   Como se mencionó anteriormente, @Configuration tendrá métodos para instanciar y configurar dependencias.
   Tales métodos serán anotados con @Bean.
   El método anotado con esta anotación funciona como ID del bean y crea y devuelve el bean real.
+  ![](images/img.png)
 * @Component: Esta anotación se usa en las clases para indicar un componente Spring.
   La anotación marca la clase Java como un bean o un componente de modo que el mecanismo de escaneo de componentes de Spring pueda agregarse al contexto de la aplicación.
+  ![](images/img_2.png)
 * @RestController: La anotación marca la clase como un controlador donde cada método devuelve un objeto de dominio en lugar de una vista.
+![](images/img_8.png)
 * @RequestMapping: Indica la url bajo la cual se publicará el controlador.
+![](images/img_8.png)
 * @GetMapping: La anotación se utiliza para asignar solicitudes HTTP GET a métodos de controlador específicos.
+  ![](images/img_7.png)
 * @PathVariable: La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+![](images/img_7.png)
 * @PostMapping: La anotación se utiliza para asignar solicitudes HTTP POST a métodos de controlador específicos.
+  ![](images/img_6.png)
 * @RequestBody: La anotación se utiliza para anotar los argumentos del método del controlador de solicitudes.
+![](images/img_6.png)
 * @PutMapping: La anotación se utiliza para asignar solicitudes HTTP PUT a métodos de controlador específicos.
+![](images/img_5.png)
 * @DeleteMapping: La anotación se utiliza para mapear solicitudes HTTP DELETE en métodos de controlador específicos.
+  ![](images/img_4.png)
 * ResponseEntity<?>: Es una extensión de HttpEntity que añade el código HTTP de estado. Contiene la entidad indicada, pero también se le puede introducir un '?' para que identifique la clase de la entidad que debe tratar.
 
 #### Lombok
