@@ -28,7 +28,6 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
   La clase que se anota con el @SpringBootApplication debe mantenerse en el paquete base.
   La única cosa que el @SpringBootApplication hace es un escaneo de componentes.
   Pero escaneará solo sus sub paquetes.
-![](images/Captura de pantalla_20221212_171953.png)
 * @Configuration: La anotación es parte del marco Spring Core.
   La anotación indica que la clase tiene métodos de definición de @Bean.
   Con esta, el contenedor Spring puede procesar la clase y generar Spring Beans para usar en la aplicación.
@@ -69,6 +68,7 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
 * @Data: Es una anotación de acceso directo conveniente que agrupa las características
   de @ToString, @EqualsAndHashCode, @Getter, @Setter y @RequiredArgsConstructor juntas.
 * @Getter y @Setter: Se generan un getter y un setter para todos los atributos. No se generan setter para atributos finales.
+![](images/Captura de pantalla_20221212_165139.png)
 * @ToString: Introduce el toString base que podría tener una clase con todos sus atributos.
 * @EqualsAndHashCode: Introduce los métodos de "equals(La misma clase)" y "hashCode()".
 
