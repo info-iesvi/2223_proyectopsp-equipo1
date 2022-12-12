@@ -118,11 +118,11 @@ Detalle: Al no tener en cuenta una capa de servicio o una integración gráfica,
 
 * @Id: La anotación se utiliza para determinar el ID de una entidad, aplicándola sobre la propiedad que sería el ID de la entidad.
 
-* ![](images/img_10.png)
+![](images/img_10.png)
 
 * @GeneratedValue: La anotación se emplea a una propiedad o campo de clave principal de una entidad o superclase correlacionada junto con la anotación @Id.
 
-* ![](images/img_10.png)
+![](images/img_10.png)
 
 ### Inversión de dependencias
 
