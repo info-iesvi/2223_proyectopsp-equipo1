@@ -275,4 +275,31 @@ Realizamos un select para visualizar que la eliminación se ha realizado correct
 
 ![Captura de pantalla_20221204_174724.png](images/Captura%20de%20pantalla_20221204_174724.png)
 
+#### Pruebas en MySQL y PHPMyAdmin
+
+Primero lanzamos la aplicación, tras abrir el contenedor de MYSQL y phpMyAdmin, y comprobamos que no haya errores de ejecución.
+
+![Captura de pantalla_20221204_180324.png](images/Captura%20de%20pantalla_20221204_180324.png)
+
+Luego lanzamos mysql en el terminal o consola, para verificar que la tabla existe.
+
+![mysql1.png](images%2Fmysql1.png)
+
+Realizamos un select desde phpMyAdmin para comprobar que la conexión se ha realizado correctamente.
+
+![mysql2.png](images%2Fmysql2.png)
+
+Realizamos un insert para comprobar que los campos automáticamente creados son correctos
+
+![mysql3.png](images%2Fmysql3.png)
+
+Realizamos un update para comprobar que el método funciona correctamente y realizamos un select para comprobar que el nuevo dato se ha introducido correctamente.
+
+![mysql4.png](images%2Fmysql4.png)
+
+Realizamos un delete y un select para visualizar que el dato se ha eliminado correctamente.
+
+![mysql2.png](images%2Fmysql2.png)
+
+
 
