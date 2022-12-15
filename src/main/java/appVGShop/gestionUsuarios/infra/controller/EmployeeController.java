@@ -1,18 +1,15 @@
 package appVGShop.gestionUsuarios.infra.controller;
 
-import appVGShop.gestionUsuarios.domain.Employee;
-import appVGShop.gestionUsuarios.domain.dto.EmployeeDTO;
-import appVGShop.gestionUsuarios.domain.dto.EmployeeDTOCreator;
-import appVGShop.gestionUsuarios.domain.dto.converter.UserDTOConverter;
-import appVGShop.gestionUsuarios.infra.EmployeeRepository;
-import appVGShop.shared.config.EndpointUrls;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import appVGShop.shared.config.*;
+import lombok.*;
+import appVGShop.gestionUsuarios.infra.*;
+import appVGShop.gestionUsuarios.domain.dto.converter.*;
+import org.springframework.http.*;
+import java.util.*;
+import appVGShop.gestionUsuarios.domain.*;
+import appVGShop.gestionUsuarios.domain.dto.*;
+import java.util.stream.*;
 
 /**
  * Esta es la clase de controlador que utilizaremos para recibir las peticiones externas.
@@ -36,6 +33,7 @@ public class EmployeeController {
      */
     @GetMapping(EndpointUrls.GetAll)
     public ResponseEntity<?> getAll() {
+
         List<Employee> employeeList = employeeRepository.findAll(); //Crea una lista de empleados desde la base de datos
 
         if (employeeList.isEmpty()) {
@@ -63,6 +61,7 @@ public class EmployeeController {
      */
     @GetMapping(EndpointUrls.GetUser)
     public ResponseEntity<?> getUser(@PathVariable Integer id) {
+
         Employee employee = employeeRepository.findById(id).orElse(null); //Busca al empleado del id indicado en PathVariable. De no encontrarlo devuelve null.
 
         if (employee == null) {
@@ -87,6 +86,7 @@ public class EmployeeController {
      */
     @PostMapping
     public ResponseEntity<?> newUser(@RequestBody EmployeeDTOCreator newUserCreator) {
+
         Employee newEmployee = new Employee(); //Declara un nuevo empleado
 
         newEmployee.setNombreEmpleado(newUserCreator.getNombreEmpleado()); //Establece el nombre del empleado según el cuerpo
@@ -114,6 +114,7 @@ public class EmployeeController {
      */
     @PutMapping(EndpointUrls.EditUser)
     public ResponseEntity<?> editUser(@RequestBody EmployeeDTOCreator editData, @PathVariable Integer id) {
+
         return employeeRepository.findById(id).map(p -> {
 
             p.setNombreEmpleado(editData.getNombreEmpleado()); //Establece el nombre
@@ -145,6 +146,7 @@ public class EmployeeController {
      */
     @DeleteMapping(EndpointUrls.DeleteUser)
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+
         employeeRepository.deleteById(id); //Borra el empleado según su ID
 
         return ResponseEntity.noContent().build(); //Devuelve un ResponseEntity 204 con que no hay contenido.

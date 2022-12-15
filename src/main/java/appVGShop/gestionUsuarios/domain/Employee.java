@@ -1,9 +1,7 @@
 package appVGShop.gestionUsuarios.domain;
 
+import lombok.*;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * Clase de Empleado base. Cuenta como una de las entidades a persistir.
