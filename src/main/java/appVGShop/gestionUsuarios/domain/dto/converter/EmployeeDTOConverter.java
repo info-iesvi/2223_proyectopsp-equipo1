@@ -8,7 +8,7 @@ import appVGShop.gestionUsuarios.domain.*;
 
 @Component
 @RequiredArgsConstructor
-public class UserDTOConverter {
+public class EmployeeDTOConverter {
 
     private final ModelMapper modelMapper;
 
