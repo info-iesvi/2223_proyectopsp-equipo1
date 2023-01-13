@@ -16,7 +16,7 @@ public interface VideogameService {
      * @param id
      * @return 404 si no se encuentra nada // 200 si el empleado existe.
      */
-    public ResponseEntity<?> getUser(Integer id);
+    public ResponseEntity<?> getVideogame(Integer id);
 
     /**
      * Crea un videojuego en la base de datos.

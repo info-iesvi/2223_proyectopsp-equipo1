@@ -35,7 +35,7 @@ public class VideogameServiceImpl implements VideogameService {
     }
 
     @Override
-    public ResponseEntity<?> getUser(Integer id) {
+    public ResponseEntity<?> getVideogame(Integer id) {
         Videogame videogame = videogameRepository.findById(id).orElse(null); //Busca al videojuego en la base de datos. Devuelve null si no está
         if (videogame == null) {
             return ResponseEntity.notFound().build(); //Devuelve un ResponseEntity 404 al no encontrarlo.
