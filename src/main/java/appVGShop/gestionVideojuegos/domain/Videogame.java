@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+/**
+ * Clase de videojuego base. Cuenta como una de las entidades a persistir
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
