@@ -4,7 +4,7 @@ import appVGShop.gestionVideojuegos.application.service.VideogameService;
 import appVGShop.gestionVideojuegos.domain.Videogame;
 import appVGShop.gestionVideojuegos.domain.dto.VideogameDTO;
 import appVGShop.gestionVideojuegos.domain.dto.VideogameDTOCreator;
-import appVGShop.gestionVideojuegos.domain.dto.converter.VideogameDTOConverter;
+import appVGShop.gestionVideojuegos.application.converter.VideogameDTOConverter;
 import appVGShop.gestionVideojuegos.infra.VideogameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

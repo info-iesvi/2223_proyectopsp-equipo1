@@ -1,4 +1,4 @@
-package appVGShop.gestionVideojuegos.domain.dto.converter;
+package appVGShop.gestionVideojuegos.application.converter;
 
 import appVGShop.gestionVideojuegos.domain.Videogame;
 import appVGShop.gestionVideojuegos.domain.dto.VideogameDTO;

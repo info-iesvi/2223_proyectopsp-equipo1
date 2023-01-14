@@ -1,4 +1,4 @@
-package appVGShop.gestionUsuarios.domain.dto.converter;
+package appVGShop.gestionUsuarios.application.converter;
 
 import org.springframework.stereotype.*;
 import lombok.*;

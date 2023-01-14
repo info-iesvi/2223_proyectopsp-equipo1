@@ -4,7 +4,7 @@ import appVGShop.gestionUsuarios.application.service.EmployeeService;
 import appVGShop.gestionUsuarios.domain.Employee;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTO;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTOCreator;
-import appVGShop.gestionUsuarios.domain.dto.converter.EmployeeDTOConverter;
+import appVGShop.gestionUsuarios.application.converter.EmployeeDTOConverter;
 import appVGShop.gestionUsuarios.infra.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
