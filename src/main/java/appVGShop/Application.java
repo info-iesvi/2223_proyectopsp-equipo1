@@ -18,7 +18,6 @@ public class Application {
 
         SpringApplication.run(Application.class, args); //Ejecuta el protocolo de inicio de la aplicación Spring
 
-
     }
 
 }

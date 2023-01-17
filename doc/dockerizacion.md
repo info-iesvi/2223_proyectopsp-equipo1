@@ -1,33 +1,35 @@
 **FASE 1**
+
 * Crear contenedor para el proyecto:
 
-docker run -it -d --name proyecto-mysql -p 3306:3306 -e MYSQL_DATABASE=proyecto -e MYSQL_USER=usuario -e MYSQL_PASSWORD=usuario -e MYSQL_ROOT_PASSWORD=root mysql
-<br>
+  docker run -it -d --name proyecto-mysql -p 3306:3306 -e MYSQL_DATABASE=proyecto -e MYSQL_USER=usuario -e MYSQL_PASSWORD=usuario -e MYSQL_ROOT_PASSWORD=root mysql
+
+
 * Nos conectamos al contenedor
 
   docker exec -it proyecto-mysql /bin/bash
-  <br><br>
+
+
 * Entraremos al contenedor desde el terminal como usuario
 
   mysql -u usuario -p -h 127.0.0.1
 
   password: root
-  <br><br>
+
+
 * Usaremos proyecto
 
   use proyecto
-  <br><br>
+
+
 * Estará vacía la tabla, dado que no ha sido inicializada
-  <br><br>
+
+
 * Creamos el contenedor phpmyadmin y lo enlazamos con el mysql que creamos previamente
 
-docker run --name phpmyadmin -d --link proyecto-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
-<br><br>
+  docker run --name phpmyadmin -d --link proyecto-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+
 
 * Accedemos (Los dos contenedores deben estar inicializados) al localhost:8081 e iniciamos como Usuario:usuario / Contraseña:usuario
-  <br><br>
 
 **FASE 2**
-
-
-
