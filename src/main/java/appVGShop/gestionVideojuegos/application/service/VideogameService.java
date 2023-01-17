@@ -23,7 +23,7 @@ public interface VideogameService {
      * @param newVideogameCreator
      * @return 201 con los datos del nuevo usuario
      */
-    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator);
+    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator, Integer id);
 
     /**
      * Edita un videojuego en la base de datos.

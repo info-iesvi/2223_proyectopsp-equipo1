@@ -1,6 +1,5 @@
 package appVGShop.gestionVideojuegos.domain.dto;
 
-import appVGShop.gestionGenero.domain.Genre;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +14,4 @@ public class VideogameDTO {
     private String descripcionVg;
     private LocalDate fechaLanzVg;
     private Integer pegi;
-    private Genre genero;
 }

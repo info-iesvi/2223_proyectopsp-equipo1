@@ -28,8 +28,8 @@ public interface VideogameAPI {
      * @param newVideogameCreator
      * @return 201 con los datos del nuevo videojuego
      */
-    @PostMapping
-    public ResponseEntity<?> newVideogame(@RequestBody VideogameDTOCreator newVideogameCreator);
+    @PostMapping("/{id}")
+    public ResponseEntity<?> newVideogame(@RequestBody VideogameDTOCreator newVideogameCreator, @PathVariable Integer id);
 
     /**
      * Edita un videojuego

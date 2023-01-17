@@ -10,10 +10,11 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Employee {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer empleadoID; //Identificador del empleado
 
     private String nombreEmpleado; //Nombre

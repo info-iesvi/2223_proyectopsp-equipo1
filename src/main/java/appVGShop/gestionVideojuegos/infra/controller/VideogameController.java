@@ -22,8 +22,8 @@ public class VideogameController implements VideogameAPI {
     }
 
     @Override
-    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator) {
-        return videogameService.newVideogame(newVideogameCreator);
+    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator, Integer id) {
+        return videogameService.newVideogame(newVideogameCreator, id);
     }
 
     @Override

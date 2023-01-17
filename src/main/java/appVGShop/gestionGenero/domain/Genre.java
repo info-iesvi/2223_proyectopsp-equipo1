@@ -3,6 +3,7 @@ package appVGShop.gestionGenero.domain;
 import appVGShop.gestionVideojuegos.domain.Videogame;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,25 +16,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Genre {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer generoID;
 
     private String nombre;
     private String descripcion;
 
-    @OneToMany(mappedBy = "genero")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "genero_id")
     private List<Videogame> listaJuegos;
-
-    public void addGame(Videogame videogame) {
-        listaJuegos.add(videogame);
-        videogame.setGenero(this);
-    }
-
-    public void removeGame(Videogame videogame) {
-        listaJuegos.remove(videogame);
-        videogame.setGenero(null);
-    }
 }

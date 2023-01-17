@@ -1,6 +1,7 @@
 package appVGShop.gestionVideojuegos.application.service.impl;
 
 import appVGShop.gestionGenero.domain.Genre;
+import appVGShop.gestionGenero.infra.GenreRepository;
 import appVGShop.gestionVideojuegos.application.service.VideogameService;
 import appVGShop.gestionVideojuegos.domain.Videogame;
 import appVGShop.gestionVideojuegos.domain.dto.VideogameDTO;
@@ -20,6 +21,9 @@ public class VideogameServiceImpl implements VideogameService {
 
     @Autowired
     private VideogameRepository videogameRepository; //Declaración del repositorio de videojuegos
+
+    @Autowired
+    private GenreRepository genreRepository; //Declaración del repo de géneros
 
     @Autowired
     private VideogameDTOConverter videogameDTOConverter; //Declaración del convertidor
@@ -46,14 +50,23 @@ public class VideogameServiceImpl implements VideogameService {
     }
 
     @Override
-    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator) {
-        Videogame newVideogame = new Videogame(); //Declara un nuevo videojuego
-        newVideogame.setNombreVg(newVideogameCreator.getNombreVg());
-        newVideogame.setDescripcionVg(newVideogameCreator.getDescripcionVg());
-        newVideogame.setFechaLanzVg(newVideogameCreator.getFechaLanzVg());
-        newVideogame.setPegi(newVideogameCreator.getPegi());
-        //TODO newVideogame.setGenero(newVideogameCreator.getGeneroid());
-        return ResponseEntity.status(HttpStatus.CREATED).body(videogameRepository.save(newVideogame)); //Devuelve un ResponseEntity 201 con el videojuego creado
+    public ResponseEntity<?> newVideogame(VideogameDTOCreator newVideogameCreator, Integer id) {
+        if (genreRepository.findById(id).isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(newVideogameCreator); //Devuelve un 404 si no encuentra el género
+        } else {
+            Videogame newVideogame = new Videogame(); //Declara un nuevo videojuego
+            newVideogame.setNombreVg(newVideogameCreator.getNombreVg());
+            newVideogame.setDescripcionVg(newVideogameCreator.getDescripcionVg());
+            newVideogame.setFechaLanzVg(newVideogameCreator.getFechaLanzVg());
+            newVideogame.setPegi(newVideogameCreator.getPegi());
+
+            Genre genre = genreRepository.getReferenceById(id);
+            genre.getListaJuegos().add(newVideogame);
+            genreRepository.save(genre);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(videogameRepository.save(newVideogame));
+        }
+         //Devuelve un ResponseEntity 201 con el videojuego creado
     }
 
     @Override

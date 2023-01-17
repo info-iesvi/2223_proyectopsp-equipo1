@@ -7,12 +7,12 @@ import appVGShop.gestionGenero.domain.dto.GenreDTO;
 import appVGShop.gestionGenero.domain.dto.GenreDTOCreator;
 import appVGShop.gestionGenero.infra.GenreRepository;
 import appVGShop.gestionVideojuegos.domain.Videogame;
+import appVGShop.gestionVideojuegos.infra.VideogameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +21,8 @@ public class GenreServiceImpl implements GenreService {
 
     @Autowired
     private GenreRepository genreRepository; //Declaración del repósito de géneros
+    @Autowired
+    private VideogameRepository videogameRepository;
 
     @Autowired
     private GenreDTOConverter genreDTOConverter;
@@ -48,11 +50,9 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     public ResponseEntity<?> newGenre(GenreDTOCreator newGenreCreator) {
-        List<Videogame> videogames = new ArrayList<>();
         Genre newGenre = new Genre();
         newGenre.setNombre(newGenreCreator.getNombre());
         newGenre.setDescripcion(newGenreCreator.getDescripcion());
-        newGenre.setListaJuegos(videogames);
         return ResponseEntity.status(HttpStatus.CREATED).body(genreRepository.save(newGenre));
     }
 
@@ -67,7 +67,16 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     public ResponseEntity<?> deleteGenre(Integer id) {
-        genreRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        if (genreRepository.findById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            List<Videogame> videogames = genreRepository.getById(id).getListaJuegos();
+            for (Videogame videogame : videogames) {
+                videogameRepository.deleteById(videogame.getVgId());
+            }
+
+            genreRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        }
     }
 }
