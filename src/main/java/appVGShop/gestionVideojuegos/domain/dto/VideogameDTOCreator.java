@@ -12,4 +12,5 @@ public class VideogameDTOCreator {
     private String descripcionVg;
     private LocalDate fechaLanzVg;
     private Integer pegi;
+    private Integer generoid;
 }

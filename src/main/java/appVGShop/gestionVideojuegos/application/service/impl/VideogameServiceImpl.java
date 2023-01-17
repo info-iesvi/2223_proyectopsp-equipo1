@@ -1,5 +1,6 @@
 package appVGShop.gestionVideojuegos.application.service.impl;
 
+import appVGShop.gestionGenero.domain.Genre;
 import appVGShop.gestionVideojuegos.application.service.VideogameService;
 import appVGShop.gestionVideojuegos.domain.Videogame;
 import appVGShop.gestionVideojuegos.domain.dto.VideogameDTO;
@@ -51,6 +52,7 @@ public class VideogameServiceImpl implements VideogameService {
         newVideogame.setDescripcionVg(newVideogameCreator.getDescripcionVg());
         newVideogame.setFechaLanzVg(newVideogameCreator.getFechaLanzVg());
         newVideogame.setPegi(newVideogameCreator.getPegi());
+        //TODO newVideogame.setGenero(newVideogameCreator.getGeneroid());
         return ResponseEntity.status(HttpStatus.CREATED).body(videogameRepository.save(newVideogame)); //Devuelve un ResponseEntity 201 con el videojuego creado
     }
 

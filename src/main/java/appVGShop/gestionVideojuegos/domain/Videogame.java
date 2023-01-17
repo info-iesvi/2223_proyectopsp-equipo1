@@ -1,8 +1,7 @@
 package appVGShop.gestionVideojuegos.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import appVGShop.gestionGenero.domain.Genre;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,4 +25,8 @@ public class Videogame {
     private String descripcionVg;
     private LocalDate fechaLanzVg;
     private Integer pegi;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="generoid", nullable = true)
+    private Genre genero;
 }

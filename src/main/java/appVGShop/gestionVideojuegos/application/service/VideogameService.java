@@ -14,7 +14,7 @@ public interface VideogameService {
     /**
      * Método para mostrar un videojuego según su ID
      * @param id
-     * @return 404 si no se encuentra nada // 200 si el empleado existe.
+     * @return 404 si no se encuentra nada // 200 si el videojuego existe.
      */
     public ResponseEntity<?> getVideogame(Integer id);
 
