@@ -112,4 +112,4 @@ El sistema cuenta a lo largo de sus tres gestiones con dos tipos de DTO que se v
 * El DTO normal, cuyos objetos usaremos para mantener la información de estos sin tener que estar acudiendo constantemente al repositorio. Aparte, servirá como una manera de desacoplar estos objetos de la capa de servicio.
 * El DTO de creación, el cual usamos como esquema para poder enviar cuerpos de información json a través de las peticiones. Mantienen los datos justos y necesarios, evitando los ID que sean autogenerados (puesto que resultaría irrelevante una vez llegase al sistema).
 
-El paso de un tipo de objeto a otro (VO a DTO y viceversa) ocurre a través de los convertidores, que se encuentran en la capa de aplicación. Utilizan el ModelMapper para mapear las clases y automáticamente transformarlas.
+El paso de un tipo de objeto a otro (VO a DTO y viceversa) ocurre a través de los convertidores, que se encuentran en la capa de aplicación. Utilizan el ModelMapper para mapear las clases y automáticamente transmutarlas.
