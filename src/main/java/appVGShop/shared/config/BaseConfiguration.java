@@ -19,5 +19,4 @@ public class BaseConfiguration {
         return new ModelMapper();
 
     }
-
 }
