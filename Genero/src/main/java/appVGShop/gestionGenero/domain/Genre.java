@@ -1,10 +1,13 @@
 package appVGShop.gestionGenero.domain;
 
+import appVGShop.gestionVideojuegos.domain.Videogame;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * Clase de Género base. Es una de las entidades a persistir
