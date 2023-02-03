@@ -7,10 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="2223_proyectopsp-equipo1" />
+        <module name="Items" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Items" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
