@@ -1,6 +1,5 @@
 package appVGShop.gestionGenero.domain.dto;
 
-import appVGShop.gestionVideojuegos.domain.dto.VideogameDTO;
 import lombok.Getter;
 import lombok.Setter;
 

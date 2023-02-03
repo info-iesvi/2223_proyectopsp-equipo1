@@ -6,6 +6,7 @@ import appVGShop.gestionUsuarios.domain.Employee;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTO;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTOCreator;
 import appVGShop.gestionUsuarios.infra.EmployeeRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
-    @Autowired
-    private EmployeeRepository employeeRepository; //Declaración del repositorio de empleados
+
+    private final EmployeeRepository employeeRepository; //Declaración del repositorio de empleados
 
     @Autowired
     private EmployeeDTOConverter userDTOConverter; //Declaración del convertidor

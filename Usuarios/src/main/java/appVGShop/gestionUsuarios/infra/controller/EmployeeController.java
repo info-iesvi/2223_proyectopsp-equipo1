@@ -2,14 +2,16 @@ package appVGShop.gestionUsuarios.infra.controller;
 
 import appVGShop.gestionUsuarios.application.service.EmployeeService;
 import appVGShop.gestionUsuarios.domain.dto.EmployeeDTOCreator;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class EmployeeController implements EmployeeAPI {
-    @Autowired
-    private EmployeeService employeeService;
+
+    private final EmployeeService employeeService;
 
     @Override
     public ResponseEntity<?> getAll() {
