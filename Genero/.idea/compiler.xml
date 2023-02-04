@@ -12,7 +12,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Genero" target="19" />
-      <module name="Videojuegos" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
