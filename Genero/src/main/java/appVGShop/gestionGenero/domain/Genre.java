@@ -1,12 +1,11 @@
 package appVGShop.gestionGenero.domain;
 
 import appVGShop.gestionVideojuegos.domain.Videogame;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -16,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder
 public class Genre {
 
     @Id
