@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * Clase de tipo Main
  */
 @SpringBootApplication
-@EnableJpaRepositories
 public class Application {
 
     /**

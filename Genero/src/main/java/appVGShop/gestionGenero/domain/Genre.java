@@ -1,10 +1,8 @@
 package appVGShop.gestionGenero.domain;
 
-import appVGShop.gestionVideojuegos.domain.Videogame;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Genre {
 
     @Id
@@ -24,7 +23,4 @@ public class Genre {
     private String nombre;
     private String descripcion;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "genero_id")
-    private List<Videogame> listaJuegos;
 }
